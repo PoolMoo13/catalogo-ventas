@@ -1,0 +1,9 @@
+{
+  "name": "Lámpara de mesa",
+  "price": 850,
+  "description": "Producto de ejemplo. Lámpara de mesa con pantalla de tela y base de cerámica.\n\nEste artículo ilustra el estado vendido: permanece visible en el catálogo, pero ya no admite consultas de compra.",
+  "condition": "Usado · Buen estado",
+  "status": "sold",
+  "featuredImage": "01.svg",
+  "images": ["01.svg", "02.svg"]
+}

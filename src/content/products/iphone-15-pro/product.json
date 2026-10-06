@@ -1,0 +1,9 @@
+{
+  "name": "iPhone 15 Pro",
+  "price": 18500,
+  "description": "Producto de ejemplo. iPhone 15 Pro de 256 GB en color titanio natural.\n\nIncluye caja y cable de carga. Sustituye esta descripción y las ilustraciones por la información y las fotos reales antes de ofrecerlo en venta.",
+  "condition": "Usado · Excelentes condiciones",
+  "status": "available",
+  "featuredImage": "01.svg",
+  "images": ["01.svg", "02.svg"]
+}

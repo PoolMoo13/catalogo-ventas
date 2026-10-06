@@ -1,0 +1,91 @@
+# Artículos en venta
+
+A small, static personal sales catalog built with React, TypeScript, Vite, and React Router. Product folders are the source of truth; there is no backend, database, CMS, or admin UI. The interface is in Spanish and prices are in Mexican pesos.
+
+## Run locally
+
+Use Node.js 20.19+ or 22.12+ and npm.
+
+```sh
+npm install
+npm run dev
+```
+
+Open the local URL printed by Vite. Direct product URLs also work in development.
+
+## Build and verify
+
+```sh
+npm test
+npm run build
+npm run preview
+```
+
+`npm test` checks validation, image fallback, ordering, currency, WhatsApp encoding, and automatic discovery by temporarily adding product folders and removing them afterward. `npm run build` checks TypeScript and produces `dist/`. `npm run preview` serves the production build locally.
+
+## Add a product
+
+Create a folder with its JSON file and local images:
+
+```text
+src/content/products/my-new-product/
+  product.json
+  01.jpg
+  02.jpg
+```
+
+```json
+{
+  "name": "iPhone 15 Pro",
+  "price": 18500,
+  "description": "iPhone 15 Pro de 256 GB en excelentes condiciones.\n\nIncluye caja y cable.",
+  "condition": "Usado",
+  "status": "available",
+  "featuredImage": "01.jpg",
+  "images": ["01.jpg", "02.jpg"]
+}
+```
+
+- The folder name becomes the slug: `my-new-product` opens at `/product/my-new-product`. Prefer lowercase names with hyphens.
+- No central product array, imports, or routing edits are required. Vite discovers the folders automatically.
+- Images referenced in JSON must exist in the **same product folder**, with matching filename capitalization. Supported formats: `.jpg`, `.jpeg`, `.png`, `.webp`, and `.svg` (including uppercase extensions).
+- `featuredImage` is the catalog image and should normally also appear in `images`.
+- The gallery follows the `images` array, selecting its first image initially. A featured image omitted from the array is appended automatically.
+- `price` is a non-negative number in MXN, without currency symbols or commas. The UI displays whole pesos.
+- `name`, `price`, and `status` are required. Supply a `description`; `condition` is optional. Use `\n\n` for paragraphs.
+- Statuses: `available` (Disponible), `reserved` (Apartado), and `sold` (Vendido). Available and reserved products allow WhatsApp inquiries. Sold products remain visible with contact hidden.
+- Products sort by available, reserved, then sold, followed by slug within each status.
+- Malformed JSON, missing names, invalid prices, and unknown statuses cause that product to be skipped, with a warning in development. Missing images are omitted; the featured image falls back to the first valid gallery image, then a local placeholder if none exist.
+- Rebuild and redeploy after changing content. Static hosting does not read product folders at runtime.
+
+The three included products use local SVG **sample illustrations**, not actual product photos. Replace or remove their folders before using the catalog for real sales. Optimized WebP or JPEG photos are recommended; no remote image service is needed.
+
+## WhatsApp contact
+
+The seller number is configured once in `src/config.ts`, currently `528261439244` (+52 826 143 9244). To override it without editing source:
+
+```sh
+cp .env.example .env.local
+```
+
+Set `VITE_WHATSAPP_NUMBER` to your international number, including country code. Restart Vite after changing it, and rebuild for deployment. This is a public contact number bundled into the client, not a secret. An invalid or empty override disables contact links.
+
+The helper creates a URL-encoded message containing the product name. WhatsApp opens in a new tab; sold products have no contact link.
+
+## Static deployment
+
+Run `npm ci && npm run build` and publish **`dist/`** to a static host. Configure an SPA fallback: serve existing assets normally and rewrite other paths, including `/product/*`, to `/index.html` with status 200. This enables direct links and refreshes on detail pages. The default build assumes deployment at the domain root.
+
+The application renders its own not-found screen for unknown routes and product slugs. The host must apply the SPA fallback for that screen to appear. No server application is needed, and this repository does not provision or deploy to a hosting provider.
+
+## Implementation
+
+- `src/data/products.ts`: Vite JSON/image discovery and parsing.
+- `src/data/normalizeProducts.ts`: validation and normalized product data.
+- `src/data/productStatus.ts`: labels, ordering, and contact behavior.
+- `src/content/products/`: editable product folders.
+- `src/components/`: accessible cards, gallery, prices, and layout.
+- `src/pages/`: catalog, detail, and not-found routes.
+- `src/utils/`: MXN formatting and WhatsApp links.
+
+See `docs/CODEX_PLAN.md` for the original six-wave implementation plan.
