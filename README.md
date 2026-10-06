@@ -72,7 +72,26 @@ Set `VITE_WHATSAPP_NUMBER` to your international number, including country code.
 
 The helper creates a URL-encoded message containing the product name. WhatsApp opens in a new tab; sold products have no contact link.
 
-## Static deployment
+## Deploy to Vercel
+
+The included `vercel.json` configures Vite, installs dependencies with `npm ci`, builds with `npm run build`, and publishes `dist/`. Its SPA rewrite enables direct product links and refreshes, following [Vercel's Vite guidance](https://vercel.com/docs/frameworks/frontend/vite#using-vite-to-make-spas).
+
+1. Push this repository, including `package-lock.json` and `vercel.json`, to your Git provider.
+2. Import the repository as a new project in Vercel. Use the repository root as the Root Directory and **Vite** as the Framework Preset. The build and output settings are supplied by `vercel.json`.
+3. Optionally set `VITE_WHATSAPP_NUMBER=528261439244` in the project's Environment Variables for Production and Preview. If omitted, the configured seller number is used. Redeploy after changing this variable because it is embedded at build time.
+4. Deploy. Open `/product/iphone-15-pro` directly and refresh it to confirm routing; also check the gallery and WhatsApp link.
+
+For deployment from the repository root with the Vercel CLI:
+
+```sh
+npx vercel
+# Publish to production when ready:
+npx vercel --prod
+```
+
+The CLI prompts you to sign in and link a project. Its local `.vercel/` directory is ignored by Git. Product edits require a new deployment; push the updated product folders to the connected repository to trigger a build.
+
+## Other static hosts
 
 Run `npm ci && npm run build` and publish **`dist/`** to a static host. Configure an SPA fallback: serve existing assets normally and rewrite other paths, including `/product/*`, to `/index.html` with status 200. This enables direct links and refreshes on detail pages. The default build assumes deployment at the domain root.
 
