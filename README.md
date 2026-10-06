@@ -21,7 +21,7 @@ npm run build
 npm run preview
 ```
 
-`npm test` checks validation, image fallback, ordering, currency, WhatsApp encoding, and automatic discovery by temporarily adding product folders and removing them afterward. `npm run build` checks TypeScript and produces `dist/`. `npm run preview` serves the production build locally.
+`npm test` checks validation, category references/filtering, image fallback, ordering, currency, WhatsApp encoding, and automatic discovery by temporarily adding product folders and removing them afterward. `npm run build` checks TypeScript and produces `dist/`. `npm run preview` serves the production build locally.
 
 ## Add a product
 
@@ -37,6 +37,7 @@ src/content/products/my-new-product/
 ```json
 {
   "name": "iPhone 15 Pro",
+  "category": "hogar",
   "price": 18500,
   "description": "iPhone 15 Pro de 256 GB en excelentes condiciones.\n\nIncluye caja y cable.",
   "condition": "Usado",
@@ -52,13 +53,34 @@ src/content/products/my-new-product/
 - `featuredImage` is the catalog image and should normally also appear in `images`.
 - The gallery follows the `images` array, selecting its first image initially. A featured image omitted from the array is appended automatically.
 - `price` is a non-negative number in MXN, without currency symbols or commas. The UI displays whole pesos.
-- `name`, `price`, and `status` are required. Supply a `description`; `condition` is optional. Use `\n\n` for paragraphs.
+- `name`, `category`, `price`, and `status` are required. `category` must reference an ID in `src/content/categories.json`. Supply a `description`; `condition` is optional. Use `\n\n` for paragraphs.
 - Statuses: `available` (Disponible), `reserved` (Apartado), and `sold` (Vendido). Available and reserved products allow WhatsApp inquiries. Sold products remain visible with contact hidden.
-- Products sort by available, reserved, then sold, followed by slug within each status.
-- Malformed JSON, missing names, invalid prices, and unknown statuses cause that product to be skipped, with a warning in development. Missing images are omitted; the featured image falls back to the first valid gallery image, then a local placeholder if none exist.
+- Within each category, products sort by available, reserved, then sold, followed by slug within each status.
+- Malformed JSON, missing names, invalid prices, unknown statuses, and missing or unknown category IDs cause that product to be skipped, with a warning in development. Missing images are omitted; the featured image falls back to the first valid gallery image, then a local placeholder if none exist.
 - Rebuild and redeploy after changing content. Static hosting does not read product folders at runtime.
 
 The three included products use local SVG **sample illustrations**, not actual product photos. Replace or remove their folders before using the catalog for real sales. Optimized WebP or JPEG photos are recommended; no remote image service is needed.
+
+## Categories
+
+Keep the category list in `src/content/categories.json`, at the content root:
+
+```json
+[
+  { "id": "musica", "name": "Música" },
+  { "id": "hogar", "name": "Hogar" }
+]
+```
+
+Each product belongs to one category, referenced by ID, for example `"category": "musica"`. IDs are unique lowercase URL-safe slugs (letters, numbers, and separating hyphens); names are the labels shown to visitors. Keeping IDs separate from labels avoids accent/capitalization mismatches and lets you rename a label without changing product files or URLs.
+
+- `/` groups products into category sections in the order listed in the JSON file.
+- `/category/musica` and `/category/hogar` show only that category's products. The navigation indicates the current category.
+- Empty categories remain visible with an empty-state message. Unknown category URLs show the not-found page.
+- To add a category, add an `{ "id", "name" }` entry to the file, then reference its ID in product JSON files. Navigation and category pages are generated automatically; no source-code edits are needed.
+- Keep IDs stable. If you change or remove an ID, update every product referencing it; old category URLs will no longer resolve. Rebuild and redeploy after content changes.
+
+The existing demo products are assigned to `hogar`; `musica` starts empty. Move any product by changing its `category` field. This catalog uses one category per product; tags or multiple categories can be added later if needed.
 
 ## WhatsApp contact
 
@@ -79,7 +101,7 @@ The included `vercel.json` configures Vite, installs dependencies with `npm ci`,
 1. Push this repository, including `package-lock.json` and `vercel.json`, to your Git provider.
 2. Import the repository as a new project in Vercel. Use the repository root as the Root Directory and **Vite** as the Framework Preset. The build and output settings are supplied by `vercel.json`.
 3. Optionally set `VITE_WHATSAPP_NUMBER=528261439244` in the project's Environment Variables for Production and Preview. If omitted, the configured seller number is used. Redeploy after changing this variable because it is embedded at build time.
-4. Deploy. Open `/product/iphone-15-pro` directly and refresh it to confirm routing; also check the gallery and WhatsApp link.
+4. Deploy. Open `/product/iphone-15-pro` and `/category/musica` directly and refresh them to confirm routing; also check the gallery and WhatsApp link.
 
 For deployment from the repository root with the Vercel CLI:
 
@@ -102,6 +124,7 @@ The application renders its own not-found screen for unknown routes and product 
 - `src/data/products.ts`: Vite JSON/image discovery and parsing.
 - `src/data/normalizeProducts.ts`: validation and normalized product data.
 - `src/data/productStatus.ts`: labels, ordering, and contact behavior.
+- `src/content/categories.json`: category IDs, display names, and display order.
 - `src/content/products/`: editable product folders.
 - `src/components/`: accessible cards, gallery, prices, and layout.
 - `src/pages/`: catalog, detail, and not-found routes.

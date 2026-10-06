@@ -9,6 +9,7 @@ export default function App() {
     <Routes>
       <Route element={<Layout />}>
         <Route index element={<ProductsPage />} />
+        <Route path="category/:categoryId" element={<ProductsPage />} />
         <Route path="product/:slug" element={<ProductPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>

@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { after, test } from 'node:test';
-import { mkdir, writeFile, rm } from 'node:fs/promises';
+import { mkdir, readFile, writeFile, rm } from 'node:fs/promises';
 import { createServer } from 'vite';
 
 const server = await createServer({ server: { middlewareMode: true, ws: false }, appType: 'custom' });
@@ -8,8 +8,9 @@ after(() => server.close());
 const { normalizeProducts } = await server.ssrLoadModule('/src/data/normalizeProducts.ts');
 const { formatPrice } = await server.ssrLoadModule('/src/utils/currency.ts');
 const { getWhatsAppUrl } = await server.ssrLoadModule('/src/utils/whatsapp.ts');
+const { getCategories, getCategoryById } = await server.ssrLoadModule('/src/data/categories.ts');
 const root = '../content/products';
-const valid = { name: 'Example', price: 1250, description: 'Details', status: 'available', featuredImage: '01.jpg', images: ['01.jpg', '02.webp'] };
+const valid = { name: 'Example', category: 'hogar', price: 1250, description: 'Details', status: 'available', featuredImage: '01.jpg', images: ['01.jpg', '02.webp'] };
 const files = (product) => ({ [`${root}/example/product.json`]: product });
 const images = { [`${root}/example/01.jpg`]: '/assets/one.jpg', [`${root}/example/02.webp`]: '/assets/two.webp' };
 const normalize = (product, assets = images) => normalizeProducts(files(product), assets, '/fallback.svg', () => {});
@@ -17,6 +18,7 @@ const normalize = (product, assets = images) => normalizeProducts(files(product)
 test('resolves local images, derives slug and preserves gallery order', () => {
   const [product] = normalize(valid);
   assert.equal(product.slug, 'example');
+  assert.equal(product.category, 'hogar');
   assert.equal(product.featuredImageUrl, '/assets/one.jpg');
   assert.deepEqual(product.imageUrls, ['/assets/one.jpg', '/assets/two.webp']);
 });
@@ -44,6 +46,23 @@ test('validation emits actionable warnings', () => {
   assert.ok(warnings.some(message => message.includes('[products/example]') && message.includes('missing.jpg')));
 });
 
+test('category IDs resolve display names and preserve the content file order', async () => {
+  const content = JSON.parse(await readFile(new URL('../src/content/categories.json', import.meta.url), 'utf8'));
+  assert.deepEqual(getCategories(), content);
+  for (const category of content) assert.equal(getCategoryById(category.id).name, category.name);
+  assert.equal(getCategoryById('unknown'), undefined);
+});
+
+test('accepts registered categories and rejects missing IDs, labels and unknown categories', () => {
+  assert.equal(normalize({ ...valid, category: 'musica' })[0].category, 'musica');
+  for (const category of [undefined, null, '', 'Música', 'unknown', ['musica']]) {
+    const warnings = [];
+    const products = normalizeProducts(files({ ...valid, category }), images, '/fallback.svg', message => warnings.push(message));
+    assert.deepEqual(products, []);
+    assert.ok(warnings.some(message => message.includes('category') && message.includes('categories.json')));
+  }
+});
+
 test('sorts available, reserved and sold, then deterministically by slug', () => {
   const entries = Object.fromEntries([['z', 'sold'], ['b', 'available'], ['c', 'reserved'], ['a', 'available']]
     .map(([slug, status]) => [`${root}/${slug}/product.json`, { ...valid, status }]));
@@ -69,12 +88,16 @@ test('Vite discovers new folders and real image extensions without a central lis
   try {
     await mkdir(directory);
     await mkdir(broken);
-    await writeFile(new URL('product.json', directory), JSON.stringify({ ...valid, featuredImage: '01.png', images: extensions.map(ext => `01.${ext}`) }));
+    await writeFile(new URL('product.json', directory), JSON.stringify({ ...valid, category: 'musica', featuredImage: '01.png', images: extensions.map(ext => `01.${ext}`) }));
     await writeFile(new URL('product.json', broken), '{invalid json');
     for (const ext of extensions) await writeFile(new URL(`01.${ext}`, directory), 'local asset fixture');
-    const { getProducts, getProductBySlug } = await server.ssrLoadModule('/src/data/products.ts');
+    const { getProducts, getProductBySlug, getProductsByCategory } = await server.ssrLoadModule('/src/data/products.ts');
     const product = getProductBySlug(slug);
     assert.ok(product);
+    assert.ok(getProductsByCategory('musica').includes(product));
+    assert.ok(!getProductsByCategory('hogar').includes(product));
+    assert.deepEqual(getProductsByCategory('unknown'), []);
+    assert.deepEqual(getProductsByCategory('hogar'), getProducts().filter(p => p.category === 'hogar'));
     assert.equal(product.imageUrls.length, 4);
     assert.ok(product.imageUrls.every(url => typeof url === 'string' && url.length > 0));
     assert.equal(getProductBySlug(`${slug}-broken`), undefined);

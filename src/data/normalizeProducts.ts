@@ -1,5 +1,6 @@
 import type { Product, ProductStatus } from '../types/product';
 import { productStatus } from './productStatus';
+import { getCategoryById } from './categories';
 
 type Warn = (message: string) => void;
 const isRecord = (value: unknown): value is Record<string, unknown> =>
@@ -31,6 +32,11 @@ export function normalizeProducts(
       continue;
     }
 
+    if (typeof raw.category !== 'string' || !getCategoryById(raw.category)) {
+      report('Missing or unknown category; use an ID from src/content/categories.json. Skipping product.');
+      continue;
+    }
+
     const resolve = (filename: unknown): string | undefined => {
       if (typeof filename !== 'string' || !filename || /[/\\]/.test(filename)) {
         report('Image must be a filename in the product folder.');
@@ -51,6 +57,7 @@ export function normalizeProducts(
     products.push({
       slug,
       name: raw.name.trim(),
+      category: raw.category,
       price: raw.price,
       description: typeof raw.description === 'string' ? raw.description.trim() : '',
       condition: typeof raw.condition === 'string' ? raw.condition.trim() || undefined : undefined,

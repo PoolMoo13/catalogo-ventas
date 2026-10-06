@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import { getProductBySlug } from '../data/products';
+import { getCategoryById } from '../data/categories';
 
 export function Layout() {
   const { pathname } = useLocation();
@@ -8,7 +9,9 @@ export function Layout() {
     let slug = '';
     try { slug = decodeURIComponent(pathname.split('/')[2] ?? ''); } catch { /* Invalid URL: show the not-found page. */ }
     const product = pathname.startsWith('/product/') ? getProductBySlug(slug) : undefined;
-    document.title = product ? `${product.name} · Artículos en venta` : 'Artículos en venta';
+    const category = pathname.startsWith('/category/') ? getCategoryById(slug) : undefined;
+    const name = product?.name ?? category?.name;
+    document.title = name ? `${name} · Artículos en venta` : 'Artículos en venta';
     window.scrollTo(0, 0);
     document.getElementById('main')?.focus({ preventScroll: true });
   }, [pathname]);

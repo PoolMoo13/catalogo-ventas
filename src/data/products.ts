@@ -18,4 +18,5 @@ for (const [path, json] of Object.entries(files)) {
 const products = normalizeProducts(parsed, images, placeholder, warn);
 
 export const getProducts = () => products;
+export const getProductsByCategory = (categoryId: string) => products.filter(product => product.category === categoryId);
 export const getProductBySlug = (slug: string) => products.find((product) => product.slug === slug);
