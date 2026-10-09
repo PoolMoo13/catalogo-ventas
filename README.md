@@ -113,6 +113,10 @@ npx vercel --prod
 
 The CLI prompts you to sign in and link a project. Its local `.vercel/` directory is ignored by Git. Product edits require a new deployment; push the updated product folders to the connected repository to trigger a build.
 
+## Web Analytics
+
+Vercel Web Analytics is mounted once at the application root and tracks page views, including client-side navigation. In your Vercel project's **Analytics** tab, click **Enable**, then deploy this version of the app. Visit the deployed site to generate the first page views. See the [Vercel Web Analytics quickstart](https://vercel.com/docs/analytics/quickstart).
+
 ## Other static hosts
 
 Run `npm ci && npm run build` and publish **`dist/`** to a static host. Configure an SPA fallback: serve existing assets normally and rewrite other paths, including `/product/*`, to `/index.html` with status 200. This enables direct links and refreshes on detail pages. The default build assumes deployment at the domain root.
