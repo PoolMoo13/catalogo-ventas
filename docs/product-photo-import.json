@@ -1,0 +1,275 @@
+[
+  {
+    "folder": "ath-m50",
+    "original": "8B2145AA-CFED-4FE1-B2C2-0BBA2BA83DB8_1_201_a.heic",
+    "number": "01",
+    "renamedOriginal": "src/content/products/ath-m50/originals/01.heic",
+    "sha256": "4646a20cd1008ba644802ad0d559c406887c8ade44e97e2fa336d4dc7b94a87e"
+  },
+  {
+    "folder": "ath-m50",
+    "original": "24D8A004-4DD4-4E9D-8F44-ABCE06F0A67C_1_201_a.heic",
+    "number": "02",
+    "renamedOriginal": "src/content/products/ath-m50/originals/02.heic",
+    "sha256": "3ed3c1b7e356fcd4e1b6d50317247eec9f61534cdba0c91118c2591213d39ac5"
+  },
+  {
+    "folder": "controlador-x-touch",
+    "original": "1.heic",
+    "number": "01",
+    "renamedOriginal": "src/content/products/controlador-x-touch/originals/01.heic",
+    "sha256": "7eea993809739c48d55ceeede8a10e46929e43c2df471152708dc517c90bf5e1"
+  },
+  {
+    "folder": "controlador-x-touch",
+    "original": "2.heic",
+    "number": "02",
+    "renamedOriginal": "src/content/products/controlador-x-touch/originals/02.heic",
+    "sha256": "87dceb948ed78e07a28945c334381807c2e7880636b792a7f95c2726886a79cf"
+  },
+  {
+    "folder": "controlador-x-touch",
+    "original": "4.heic",
+    "number": "03",
+    "renamedOriginal": "src/content/products/controlador-x-touch/originals/03.heic",
+    "sha256": "b2a4240c2dc938014d47356976b0cfeae5c5a2b891e7600f4b5136b9feef505a"
+  },
+  {
+    "folder": "controlador-x-touch",
+    "original": "3.heic",
+    "number": "04",
+    "renamedOriginal": "src/content/products/controlador-x-touch/originals/04.heic",
+    "sha256": "38e266b68f1bbd23ab1e776ccae63252b73630171f40fc34584c61b253c50c77"
+  },
+  {
+    "folder": "guitarra-donner",
+    "original": "09249FFB-73DA-443B-9BA0-ACB44B4BD193_1_201_a.heic",
+    "number": "01",
+    "renamedOriginal": "src/content/products/guitarra-donner/originals/01.heic",
+    "sha256": "da81020c7eeef7a632b6ad99298062ebc2bfead6002b1a51c4883deab9a91c23"
+  },
+  {
+    "folder": "guitarra-donner",
+    "original": "2C1828C1-E85E-42BA-9DD3-E698E5B441E2_1_201_a.heic",
+    "number": "02",
+    "renamedOriginal": "src/content/products/guitarra-donner/originals/02.heic",
+    "sha256": "d34e066d7bf323360fd52aa48db5b874308479318d6dd7fba2843b6230a3201d"
+  },
+  {
+    "folder": "guitarra-donner",
+    "original": "6D229568-B7DA-4F4A-A1CB-9119882BED7A_1_201_a.heic",
+    "number": "03",
+    "renamedOriginal": "src/content/products/guitarra-donner/originals/03.heic",
+    "sha256": "6fefd2947b1ec71134b50c7f0f1aaca3a8eb6f8f18b59b8cc8689bea0a63bee8"
+  },
+  {
+    "folder": "interfaz-maono",
+    "original": "EB344E2A-E773-4D90-8A69-D85BC4BB208A_1_201_a.heic",
+    "number": "01",
+    "renamedOriginal": "src/content/products/interfaz-maono/originals/01.heic",
+    "sha256": "39f6274276aeb42046874d1c4e1e440be269b95c9dd8d2fe80120fe2f6f6678e"
+  },
+  {
+    "folder": "interfaz-maono",
+    "original": "0B11D7CA-631A-442A-AC10-1FB635CF219A_1_201_a.heic",
+    "number": "02",
+    "renamedOriginal": "src/content/products/interfaz-maono/originals/02.heic",
+    "sha256": "41cd85493dfa47e3b6de7f2980ddd02c218d06d1446bf2a65d4719ba505ab7ad"
+  },
+  {
+    "folder": "ipad-pro-11",
+    "original": "929C9CAC-AC2C-474E-85F9-5AB8DD51BDF9_1_201_a.heic",
+    "number": "01",
+    "renamedOriginal": "src/content/products/ipad-pro-11/originals/01.heic",
+    "sha256": "be379bb6da4709add26613a40e1afc23e6e3d7fd784e145b999c78249e407939"
+  },
+  {
+    "folder": "ipad-pro-11",
+    "original": "D252CAED-36ED-4233-B8CE-D2F65CF40639_1_201_a.heic",
+    "number": "02",
+    "renamedOriginal": "src/content/products/ipad-pro-11/originals/02.heic",
+    "sha256": "fc0ff40f71602c12b25ac394619731bfa6922061f271c49f543108106ec46614"
+  },
+  {
+    "folder": "ipad-pro-11",
+    "original": "5DB7C5A2-6BC8-4AE5-A2CB-ADE41283D7E6_1_201_a.heic",
+    "number": "03",
+    "renamedOriginal": "src/content/products/ipad-pro-11/originals/03.heic",
+    "sha256": "af30b91bb53ba326b14dba20678c7dda2cc8066a689070e441b63466e7469da8"
+  },
+  {
+    "folder": "mezcladora-xenyx",
+    "original": "B829C5B8-70D1-4878-A63A-5CB1C7BD8B8B_1_201_a.heic",
+    "number": "01",
+    "renamedOriginal": "src/content/products/mezcladora-xenyx/originals/01.heic",
+    "sha256": "0dcb691f92cc3b0084c7cb4b600cd44d5f2bd7422dfb692954e32fdb8aa8baad"
+  },
+  {
+    "folder": "mezcladora-xenyx",
+    "original": "F2ED6809-DD08-4D89-835E-42A4A0313625_1_201_a.heic",
+    "number": "02",
+    "renamedOriginal": "src/content/products/mezcladora-xenyx/originals/02.heic",
+    "sha256": "27f345ad3b5693c0df4cdf38c2e2045b5db09c49a7ee93fd0f505c0dbacdbd3a"
+  },
+  {
+    "folder": "microfonos-behringer",
+    "original": "FDC72A30-639F-4348-AC48-C1DE7F4D1A4E_1_201_a.heic",
+    "number": "01",
+    "renamedOriginal": "src/content/products/microfonos-behringer/originals/01.heic",
+    "sha256": "4cfd4e3ec206483aabc57125a2caa0ea38b6f031f164e720525cfd839132a105"
+  },
+  {
+    "folder": "microfonos-behringer",
+    "original": "372808B8-B8AD-4B8F-B67D-4E6C511EB691_1_201_a.heic",
+    "number": "02",
+    "renamedOriginal": "src/content/products/microfonos-behringer/originals/02.heic",
+    "sha256": "2964bbcbee6eaa20ae48cb265dc8b7df9d6ffffa49989b6e92b5f9391e92e768"
+  },
+  {
+    "folder": "microfonos-behringer",
+    "original": "F03CAD62-B186-438F-B124-8AEC12DE6B03_1_201_a.heic",
+    "number": "03",
+    "renamedOriginal": "src/content/products/microfonos-behringer/originals/03.heic",
+    "sha256": "7a0326c7174dbdf290e5e001962acdc3a6f6fd8f0d741f38248611991565716a"
+  },
+  {
+    "folder": "microfonos-xtuga",
+    "original": "A1AA350E-66B1-4647-86E5-7923497F6AAA_1_201_a.heic",
+    "number": "01",
+    "renamedOriginal": "src/content/products/microfonos-xtuga/originals/01.heic",
+    "sha256": "9d3c24a7ebc10cdf16590bc87a53494238cfd14a6b7d8347c0aec8b74f1b8a18"
+  },
+  {
+    "folder": "microfonos-xtuga",
+    "original": "206764DB-0CC1-4253-A40F-E2580EE71E3C_1_201_a.heic",
+    "number": "02",
+    "renamedOriginal": "src/content/products/microfonos-xtuga/originals/02.heic",
+    "sha256": "516081d11d8844674247602fac1681248b782d3cd7fae64060fbd665b999bc87"
+  },
+  {
+    "folder": "microfonos-xtuga",
+    "original": "45FA09D0-4A3B-4593-A613-0127822E04FA_1_201_a.heic",
+    "number": "03",
+    "renamedOriginal": "src/content/products/microfonos-xtuga/originals/03.heic",
+    "sha256": "48807f653dd8a48f6f999dc653d0b62edf4d43f5052e68941a315903e811027a"
+  },
+  {
+    "folder": "microfonos-xtuga",
+    "original": "44D90D8D-5121-47A3-8B29-CF8CE6F7F733_1_201_a.heic",
+    "number": "04",
+    "renamedOriginal": "src/content/products/microfonos-xtuga/originals/04.heic",
+    "sha256": "c5fd2210588876b29647cdc31d2f17a5e5b104b367153891165bc5b7c3ab3487"
+  },
+  {
+    "folder": "mini-snake-proreck",
+    "original": "723C69F7-0BD5-46D1-9015-AAFAD3117E52_1_201_a.heic",
+    "number": "01",
+    "renamedOriginal": "src/content/products/mini-snake-proreck/originals/01.heic",
+    "sha256": "bc789498805418c843bcdb22b51e25a6c2f7d3acf6dcd5bdacd03e6e9af866be"
+  },
+  {
+    "folder": "mini-snake-proreck",
+    "original": "B02625EB-C8D2-441B-9F5E-8A3019347D41_1_201_a.heic",
+    "number": "02",
+    "renamedOriginal": "src/content/products/mini-snake-proreck/originals/02.heic",
+    "sha256": "634c045ab4d50c252f44f5f6b210e94cf18a8090432e3c950c6d9364108c3f3f"
+  },
+  {
+    "folder": "monitoreo-xtuga",
+    "original": "6DF43E43-F861-4928-A177-CFD979141518_1_102_a.jpeg",
+    "number": "01",
+    "renamedOriginal": "src/content/products/monitoreo-xtuga/01.jpeg",
+    "sha256": "c4d4a993bdfcbad55afeccfa1608b4b838f64da71166624a16ee137d864ff435"
+  },
+  {
+    "folder": "monitoreo-xtuga",
+    "original": "DCE70549-7F99-42ED-83D1-C7ADBB4B8964_1_102_a.jpeg",
+    "number": "02",
+    "renamedOriginal": "src/content/products/monitoreo-xtuga/02.jpeg",
+    "sha256": "9f375c5de50d793aa7f3e5fbba7a59647d9a60ec4f6a0d4451c49e6ee1bec150"
+  },
+  {
+    "folder": "monitoreo-xtuga",
+    "original": "00216E95-658A-4B8C-8A89-6E22C561E1B1_1_102_a.jpeg",
+    "number": "03",
+    "renamedOriginal": "src/content/products/monitoreo-xtuga/03.jpeg",
+    "sha256": "8f8a8cd8f16f2e5b0854d9f26e7cf9ae2cadd73e84b200a45a0cc14103e0b9f3"
+  },
+  {
+    "folder": "pedalera-donner",
+    "original": "1CBA4C6E-551B-426D-8C6E-D767A15ADBA2_1_201_a.heic",
+    "number": "01",
+    "renamedOriginal": "src/content/products/pedalera-donner/originals/01.heic",
+    "sha256": "28b33abced1f1a3f923db06526e4a6fe7d60cf796178624d0712c729470646c8"
+  },
+  {
+    "folder": "pedalera-donner",
+    "original": "E6449219-EAB6-4E7A-8F74-4F969EE9B34F_1_201_a.heic",
+    "number": "02",
+    "renamedOriginal": "src/content/products/pedalera-donner/originals/02.heic",
+    "sha256": "23a9da94de7a01ee589d0450a3629a4c9c2d1ce1270f05537097367f4d1b61f2"
+  },
+  {
+    "folder": "pedalera-donner",
+    "original": "00C6C211-41A3-402E-8FB1-699F67C3035D_1_201_a.heic",
+    "number": "03",
+    "renamedOriginal": "src/content/products/pedalera-donner/originals/03.heic",
+    "sha256": "f0396c93405e79801a4a22d9b548fcf2b1c8cfbe6ad74ab0627cc175095bd9f9"
+  },
+  {
+    "folder": "snake-proreck",
+    "original": "7DAE9F86-6520-457C-8054-4564DC42EC03_1_201_a.heic",
+    "number": "01",
+    "renamedOriginal": "src/content/products/snake-proreck/originals/01.heic",
+    "sha256": "a053862404687195854993bf8182f19bf2ddbbdd4dc47897eaa6c62622f30c49"
+  },
+  {
+    "folder": "snake-proreck",
+    "original": "178165D4-50E7-478C-9A76-A908A595985F_1_201_a.heic",
+    "number": "02",
+    "renamedOriginal": "src/content/products/snake-proreck/originals/02.heic",
+    "sha256": "5a171e705501df1301fa816a1a4239bf8e214f6f6cf113816653eb46ad3a1676"
+  },
+  {
+    "folder": "snake-proreck",
+    "original": "6A86B610-F479-48FA-A2C7-4BC2CA63A29F_1_201_a.heic",
+    "number": "03",
+    "renamedOriginal": "src/content/products/snake-proreck/originals/03.heic",
+    "sha256": "913337a318cafe18f144cca490e510aae6d3dbec1a813dc4e200bf8651b84d38"
+  },
+  {
+    "folder": "wave",
+    "original": "6730C1A8-AC5B-4804-A6BD-DEEC7774D47C_1_201_a.heic",
+    "number": "01",
+    "renamedOriginal": "src/content/products/wave/originals/01.heic",
+    "sha256": "80e548a660670438ecd3c85a137116d7dd4a73eb67f337a3dd8765871f33aff6"
+  },
+  {
+    "folder": "wave",
+    "original": "F1074E8A-5558-47EB-9087-8227A677B055_1_201_a.heic",
+    "number": "02",
+    "renamedOriginal": "src/content/products/wave/originals/02.heic",
+    "sha256": "3468a94b4f29cd710d5aa31aa7d37124aad47d3a6abf7bdd056ecb28ae6dbf1b"
+  },
+  {
+    "folder": "wave-pro",
+    "original": "5B27FDE1-5C69-4BD8-9B19-E75413834086_1_201_a.heic",
+    "number": "01",
+    "renamedOriginal": "src/content/products/wave-pro/originals/01.heic",
+    "sha256": "9234a9e77c08b9760f63f82a1de1f7d238dab2634346424ca1143bcea38822b6"
+  },
+  {
+    "folder": "wave-pro",
+    "original": "9561A62D-32AA-4065-A563-1BE82A5D9CCD_1_201_a.heic",
+    "number": "02",
+    "renamedOriginal": "src/content/products/wave-pro/originals/02.heic",
+    "sha256": "a5484c55ee9e8be2e4cc7910081250abb5d3fca5a768eb3335c138324c0e8161"
+  },
+  {
+    "folder": "wave-pro",
+    "original": "F5D1B65F-DCAE-4D77-A73D-B1D9D3C1C06B_1_201_a.heic",
+    "number": "03",
+    "renamedOriginal": "src/content/products/wave-pro/originals/03.heic",
+    "sha256": "155995e4d7b3d86c57b94ca485ecfdaf7025ee9eaba663012078e311c44f0388"
+  }
+]

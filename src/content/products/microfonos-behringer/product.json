@@ -1,0 +1,13 @@
+{
+  "name": "Set de 3 micrófonos Behringer ULTRAVOICE XM1800S",
+  "category": "music",
+  "price": 800,
+  "description": "Juego de tres micrófonos dinámicos de mano para voz e instrumentos. Su patrón supercardioide favorece la captación de la fuente situada frente al micrófono y reduce el sonido procedente de otras direcciones. Cada micrófono incorpora interruptor de encendido y apagado y conexión XLR.",
+  "status": "available",
+  "featuredImage": "01.jpg",
+  "images": [
+    "01.jpg",
+    "02.jpg",
+    "03.jpg"
+  ]
+}

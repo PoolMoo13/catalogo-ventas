@@ -1,0 +1,14 @@
+{
+  "name": "Superficie de control Behringer X-TOUCH",
+  "category": "music",
+  "price": 7500,
+  "description": "Superficie de control para producción musical y mezcla, con nueve faders motorizados de 100 mm sensibles al tacto, ocho pantallas de canal y controles giratorios con indicadores LED. Permite manejar niveles, automatización y transporte en software compatible con los protocolos Mackie Control y HUI.\n\nCuenta con conexiones USB, MIDI y Ethernet. Incluye una bolsa acolchada de transporte.",
+  "status": "available",
+  "featuredImage": "01.jpg",
+  "images": [
+    "01.jpg",
+    "02.jpg",
+    "03.jpg",
+    "04.jpg"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Sistema de monitoreo in-ear inalámbrico XTUGA",
+  "category": "music",
+  "price": 1700,
+  "description": "Sistema de monitoreo personal inalámbrico UHF para escuchar una mezcla de referencia durante ensayos y presentaciones. El transmisor se conecta a una salida de monitoreo de la mezcladora y envía la señal al receptor portátil, que permite ajustar el nivel de escucha.",
+  "status": "available",
+  "featuredImage": "01.jpeg",
+  "images": [
+    "01.jpeg",
+    "02.jpeg",
+    "03.jpeg"
+  ]
+}

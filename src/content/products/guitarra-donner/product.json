@@ -1,0 +1,13 @@
+{
+  "name": "Guitarra de viaje Donner HUSH-I",
+  "category": "music",
+  "price": 2300,
+  "description": "Guitarra electroacústica de viaje con diseño sin pala, cuerpo compacto en acabado natural y marcos desmontables. Cuenta con salida para audífonos para practicar en silencio y salida de 6.35 mm para conectarla a un amplificador o sistema de audio.\n\nSus controles de volumen y ecualización permiten ajustar el sonido.",
+  "status": "available",
+  "featuredImage": "01.jpg",
+  "images": [
+    "01.jpg",
+    "02.jpg",
+    "03.jpg"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "name": "Mezcladora Behringer XENYX X1204USB",
+  "category": "music",
+  "price": 3500,
+  "description": "Mezcladora analógica con interfaz de audio USB estéreo para ensayos, presentaciones y grabación de mezclas en computadora. Ofrece cuatro preamplificadores de micrófono XENYX, compresión de un solo control en los canales mono, ecualización de tres bandas y un procesador de efectos integrado.\n\nSus faders permiten ajustar cada canal y la mezcla principal. Es útil para reunir voces e instrumentos y enviar una mezcla estéreo a un sistema de sonido o una computadora.",
+  "status": "available",
+  "featuredImage": "01.jpg",
+  "images": [
+    "01.jpg",
+    "02.jpg"
+  ]
+}

@@ -54,8 +54,8 @@ test('category IDs resolve display names and preserve the content file order', a
 });
 
 test('accepts registered categories and rejects missing IDs, labels and unknown categories', () => {
-  assert.equal(normalize({ ...valid, category: 'musica' })[0].category, 'musica');
-  for (const category of [undefined, null, '', 'Música', 'unknown', ['musica']]) {
+  assert.equal(normalize({ ...valid, category: 'music' })[0].category, 'music');
+  for (const category of [undefined, null, '', 'Música', 'unknown', ['music']]) {
     const warnings = [];
     const products = normalizeProducts(files({ ...valid, category }), images, '/fallback.svg', message => warnings.push(message));
     assert.deepEqual(products, []);
@@ -88,13 +88,13 @@ test('Vite discovers new folders and real image extensions without a central lis
   try {
     await mkdir(directory);
     await mkdir(broken);
-    await writeFile(new URL('product.json', directory), JSON.stringify({ ...valid, category: 'musica', featuredImage: '01.png', images: extensions.map(ext => `01.${ext}`) }));
+    await writeFile(new URL('product.json', directory), JSON.stringify({ ...valid, category: 'music', featuredImage: '01.png', images: extensions.map(ext => `01.${ext}`) }));
     await writeFile(new URL('product.json', broken), '{invalid json');
     for (const ext of extensions) await writeFile(new URL(`01.${ext}`, directory), 'local asset fixture');
     const { getProducts, getProductBySlug, getProductsByCategory } = await server.ssrLoadModule('/src/data/products.ts');
     const product = getProductBySlug(slug);
     assert.ok(product);
-    assert.ok(getProductsByCategory('musica').includes(product));
+    assert.ok(getProductsByCategory('music').includes(product));
     assert.ok(!getProductsByCategory('hogar').includes(product));
     assert.deepEqual(getProductsByCategory('unknown'), []);
     assert.deepEqual(getProductsByCategory('hogar'), getProducts().filter(p => p.category === 'hogar'));

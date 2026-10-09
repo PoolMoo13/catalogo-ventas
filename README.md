@@ -67,20 +67,20 @@ Keep the category list in `src/content/categories.json`, at the content root:
 
 ```json
 [
-  { "id": "musica", "name": "Música" },
+  { "id": "music", "name": "Música" },
   { "id": "hogar", "name": "Hogar" }
 ]
 ```
 
-Each product belongs to one category, referenced by ID, for example `"category": "musica"`. IDs are unique lowercase URL-safe slugs (letters, numbers, and separating hyphens); names are the labels shown to visitors. Keeping IDs separate from labels avoids accent/capitalization mismatches and lets you rename a label without changing product files or URLs.
+Each product belongs to one category, referenced by ID, for example `"category": "music"`. IDs are unique lowercase URL-safe slugs (letters, numbers, and separating hyphens); names are the labels shown to visitors. Keeping IDs separate from labels avoids accent/capitalization mismatches and lets you rename a label without changing product files or URLs.
 
 - `/` groups products into category sections in the order listed in the JSON file.
-- `/category/musica` and `/category/hogar` show only that category's products. The navigation indicates the current category.
+- `/category/music` and `/category/hogar` show only that category's products. The navigation indicates the current category.
 - Empty categories remain visible with an empty-state message. Unknown category URLs show the not-found page.
 - To add a category, add an `{ "id", "name" }` entry to the file, then reference its ID in product JSON files. Navigation and category pages are generated automatically; no source-code edits are needed.
 - Keep IDs stable. If you change or remove an ID, update every product referencing it; old category URLs will no longer resolve. Rebuild and redeploy after content changes.
 
-The existing demo products are assigned to `hogar`; `musica` starts empty. Move any product by changing its `category` field. This catalog uses one category per product; tags or multiple categories can be added later if needed.
+The product photos and JSON files are assigned to `music`. Move any product by changing its `category` field. This catalog uses one category per product; tags or multiple categories can be added later if needed.
 
 ## WhatsApp contact
 
@@ -101,7 +101,7 @@ The included `vercel.json` configures Vite, installs dependencies with `npm ci`,
 1. Push this repository, including `package-lock.json` and `vercel.json`, to your Git provider.
 2. Import the repository as a new project in Vercel. Use the repository root as the Root Directory and **Vite** as the Framework Preset. The build and output settings are supplied by `vercel.json`.
 3. Optionally set `VITE_WHATSAPP_NUMBER=528261439244` in the project's Environment Variables for Production and Preview. If omitted, the configured seller number is used. Redeploy after changing this variable because it is embedded at build time.
-4. Deploy. Open `/product/iphone-15-pro` and `/category/musica` directly and refresh them to confirm routing; also check the gallery and WhatsApp link.
+4. Deploy. Open `/product/controlador-x-touch` and `/category/music` directly and refresh them to confirm routing; also check the gallery and WhatsApp link.
 
 For deployment from the repository root with the Vercel CLI:
 
